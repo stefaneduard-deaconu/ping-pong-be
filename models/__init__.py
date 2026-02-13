@@ -2,6 +2,9 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import declarative_base
 
+from pydantic import BaseModel
+
+
 Base = declarative_base()
 
 class Player(Base):
@@ -9,3 +12,6 @@ class Player(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), nullable=False)
+
+class PlayerCreate(BaseModel):
+    name: str
