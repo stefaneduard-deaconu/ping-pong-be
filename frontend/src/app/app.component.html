@@ -1,0 +1,9 @@
+<h1>Ping-Pong Frontend</h1>
+<p>Click the button to call the backend ping endpoint.</p>
+<button (click)="callPing()" [disabled]="loading">{{ loading ? 'Calling…' : 'Call /ping' }}</button>
+
+<div style="margin-top:16px;">
+  <strong>Response:</strong>
+  <div *ngIf="pingResponse">{{ pingResponse }}</div>
+  <div *ngIf="error" style="color:darkred">Error: {{ error }}</div>
+</div>
