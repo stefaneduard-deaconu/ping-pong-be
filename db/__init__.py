@@ -26,4 +26,5 @@ def get_db():
 def create_tables():
     """Create all tables in the database"""
     from models import Base
-    Base.metadata.create_all(bind=engine)
+    # Only create tables if they don't exist - safer for production
+    Base.metadata.create_all(bind=engine, checkfirst=True)
